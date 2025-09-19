@@ -3,6 +3,27 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style lang="scss">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			html {
+				scroll-behavior: smooth;
+				overflow: scroll; 
+				scrollbar-width: none; 
+				-ms-overflow-style: none; 
+				&::-webkit-scrollbar {
+					display: none;
+				}
+			}
+			body {
+				width: 100vw;
+				height: 100vh;
+				height: 100dvh;
+			}
+		</style>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
