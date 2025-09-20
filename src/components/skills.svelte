@@ -11,11 +11,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1em;
+            // gap: 1em;
             animation: spin 20s infinite linear;
             animation-delay: 150ms;
             animation-play-state: running;
-            padding-right: 1em;
         }
         .card {
             flex: 0 0 5em;
