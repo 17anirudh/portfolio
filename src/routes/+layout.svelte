@@ -31,21 +31,9 @@
     import ThemeButton from '../components/themeButton.svelte';
     import Loader from '../components/loader.svelte';
     import {lightTheme} from '../store';
-    import {checkUserThemePreference} from '../store';
-    import { onMount } from 'svelte';
+    import {visibleState} from '../store';
 
     let { children } = $props();
-    let visibleState = $state(false);
-    onMount(() => {
-        setTimeout(() => {
-            checkUserThemePreference();
-            visibleState = true;
-        }, 1200);
-    });
-
-    $effect(() => {
-        localStorage.setItem("lightTheme", String(lightTheme));
-    })
 </script>
 
 <style lang="scss">
@@ -91,7 +79,7 @@
         @include full-screen;
         @include center-stuff;
         @include body-color("d");
-        &:not(.visible) {
+        &.hide {
             display: none;
         }
     }
@@ -110,7 +98,7 @@
 	}
 </style>
 
-<div id="loader" class:visible={visibleState}>
+<div id="loader" class:hide={visibleState}>
     <Loader />
 </div>
 

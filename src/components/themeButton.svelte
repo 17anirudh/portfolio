@@ -1,5 +1,22 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
     import {lightTheme} from '../store';
+    import {visibleState} from '../store';
+            
+    onMount(() => {
+        setTimeout(() => {
+            let dynamicTheme: [string | null, boolean]  = [
+                localStorage.getItem("lightTheme"), 
+                window.matchMedia('(prefers-color-scheme: light)').matches
+            ];
+            dynamicTheme[0] ? lightTheme.set(Boolean(dynamicTheme[0])) : lightTheme.set(dynamicTheme[1]);
+            visibleState.update(n=>!n);
+        }, 500);
+    });
+
+    $effect(() => {
+        localStorage.setItem("lightTheme", String(lightTheme));
+    });
 </script>
 
 <style lang="ts">
@@ -43,6 +60,6 @@
 </style>
 
 <button title="{lightTheme?'Dark mode':'Light mode'}" aria-label="{lightTheme?'Dark mode':'Light mode'}"
-    type="button" onclick="{() => lightTheme.set(!lightTheme)}">
+    type="button" onclick="{() => lightTheme.update(n=>!n)}">
     <span class="material-symbols-outlined">{lightTheme?'dark_mode':'light_mode'}</span>
 </button>
