@@ -2,20 +2,20 @@
     import { onMount } from 'svelte';
     import {lightTheme} from '../store';
     import {visibleState} from '../store';
+    let mounted = false;
             
     onMount(() => {
         setTimeout(() => {
-            let dynamicTheme: [string | null, boolean]  = [
-                localStorage.getItem("lightTheme"), 
-                window.matchMedia('(prefers-color-scheme: light)').matches
-            ];
-            dynamicTheme[0] ? lightTheme.set(Boolean(dynamicTheme[0])) : lightTheme.set(dynamicTheme[1]);
+            lightTheme.set(localStorage.getItem("lightTheme") === "true");
             visibleState.update(n=>!n);
+            mounted = true;
         }, 1200);
     });
 
     $effect(() => {
-        localStorage.setItem("lightTheme", String(lightTheme));
+        if (mounted) {
+            localStorage.setItem("lightTheme", String($lightTheme));
+        }
     });
 </script>
 
@@ -75,13 +75,12 @@
             position: relative;
             padding: 3px;
             font-size: 18px;
-            // color: rgb(193, 163, 98);
             border: none;
             background-color: transparent;
             font-weight: 600;
             transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
             overflow: hidden;
-            ::before {
+            &::before {
                 content: '';
                 position: absolute;
                 inset: 0;
@@ -94,16 +93,16 @@
                 background-color: rgb(193, 163, 98);
                 transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
             }
-            :hover::before {
+            &:hover::before {
                 scale: 3;
             }
-            :hover {
+            &:hover {
                 color: #212121;
                 scale: 1.1;
                 box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
                 border-radius: 24px;
             }
-            :active {
+            &:active {
                 scale: 1;
             }
         }
@@ -132,6 +131,9 @@
         <h1>ANIRUDH</h1>
     </button>
     <div id="inner">
+        <a href="#skills">
+            <h3>Skills</h3>
+        </a>
         <a href="#projects">
             <h3>Projects</h3>
         </a>

@@ -24,6 +24,7 @@
 	<link rel="icon" href={owl} />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"  />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <title>Anirudh</title>
 </svelte:head>
 
@@ -56,6 +57,9 @@
         }
     }
     @mixin full-screen {
+        min-height: 100vh;
+        min-height: 100dvh;
+        min-height: 100%;
         height: 100vh;
         height: 100dvh;
         height: 100%;
@@ -70,7 +74,9 @@
 
     div#loader {
         display: flex;
-        @include full-screen;
+        height: 100vh;
+        height: 100dvh;
+        width: 100vw;
         @include center-stuff;
         @include body-color("d");
         &.hide {
@@ -92,7 +98,7 @@
                 @include body-color("l");
             }
         }
-}
+    }
 </style>
 
 <div id="loader" class:hide={$visibleState}>

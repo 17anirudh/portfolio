@@ -9,24 +9,14 @@
 				padding: 0;
 				box-sizing: border-box;
 			}
-			html {
-				scroll-behavior: smooth;
-				overflow: scroll; 
-				scrollbar-width: none; 
-				-ms-overflow-style: none; 
-			}
-			html::-webkit-scrollbar {
-					display: none;
-			}
-			body {
-				width: 100vw;
-				height: 100vh;
-				height: 100dvh;
+			html, body {
+				height: fit-content;
+				width: 100%;
 			}
 		</style>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
+		<div style="display: contents; height: 100%;">%sveltekit.body%</div>
 	</body>
 </html>
