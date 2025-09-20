@@ -28,34 +28,25 @@
 
 <script lang="ts">
 	import owl from '$lib/assets/owl.svg';
+    import ThemeButton from '../components/themeButton.svelte';
     import Loader from '../components/loader.svelte';
+    import {lightTheme} from '../store';
+    import {checkUserThemePreference} from '../store';
     import { onMount } from 'svelte';
-	
+
     let { children } = $props();
-    let lightTheme: boolean = $state(false);
-    let bodyVisible: boolean = $state(false);
-
-    function checkTheme() {
-        let dynamicTheme: [string|null, boolean] = [
-                localStorage.getItem("lightTheme"), 
-                window.matchMedia('(prefers-color-scheme: light)').matches
-            ];
-        console.log(`Windows : ${dynamicTheme[1]}\nLocal storage: ${dynamicTheme[0]}`);
-        dynamicTheme[0] !== null ? lightTheme = dynamicTheme[0] === "true" : lightTheme = dynamicTheme[1];
-        bodyVisible = true;
-        console.log(`Windows : ${dynamicTheme[1]}\nLocal storage: ${dynamicTheme[0]}`);
-    }
-
+    let visibleState = $state(false);
     onMount(() => {
-        checkTheme();
-        setTimeout(() => {}, 1000);
-    })
+        setTimeout(() => {
+            checkUserThemePreference();
+            visibleState = true;
+        }, 1200);
+    });
 
     $effect(() => {
         localStorage.setItem("lightTheme", String(lightTheme));
-    });
+    })
 </script>
-
 
 <style lang="scss">
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -100,18 +91,16 @@
         @include full-screen;
         @include center-stuff;
         @include body-color("d");
-        &.hide {
+        &:not(.visible) {
             display: none;
         }
     }
 
-	div#main-body{
+	div#mainBody{
         @include full-screen;
         @include body-color("d");
 		font-family: 'Inter', sans-serif;
-        &:not(.visible) {
-            visibility: hidden;
-        }
+        visibility: hidden;
         &.visible{
             visibility: visible;
         }
@@ -121,14 +110,12 @@
 	}
 </style>
 
-<div id="loader" class:hide={bodyVisible}>
-    <Loader/>
+<div id="loader" class:visible={visibleState}>
+    <Loader />
 </div>
 
-<div id="main-body" class:lightTheme={lightTheme} class:visible={bodyVisible}>
-    <button type="button" aria-label="Theme toggler"
-    onclick="{() => lightTheme = !lightTheme}">
-            <span class="material-symbols-outlined">{!lightTheme?'light_mode':'dark_mode'}</span>
-    </button>
+<div id="mainBody" class:visible={visibleState} class:lightTheme={lightTheme}>
+    <ThemeButton />
+    <p>{$lightTheme}</p>
     {@render children?.()}
 </div>
