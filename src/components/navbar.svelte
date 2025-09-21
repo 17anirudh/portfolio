@@ -9,7 +9,7 @@
             lightTheme.set(localStorage.getItem("lightTheme") === "true");
             visibleState.update(n=>!n);
             mounted = true;
-        }, 1200);
+        }, 1701);
     });
 
     $effect(() => {
@@ -73,6 +73,9 @@
         }
     }
     button {
+        &#first_name{
+            font-family: 'Caveat', cursive;
+        }
         &.theme{
             cursor: pointer;
             position: relative;
@@ -131,7 +134,7 @@
 </style>
 
 <nav class:lightTheme={$lightTheme}>
-    <button title="Anirudh" aria-label="Anirudh" type="button" onclick="{() => location.reload()}">
+    <button id="first_name" title="Anirudh" aria-label="Anirudh" type="button" onclick="{() => location.reload()}">
         <h1>ANIRUDH</h1>
     </button>
     <div id="inner">

@@ -126,13 +126,14 @@
     <Loader />
 </div>
 
-<div id="mainBody" class:visible={$visibleState} class:lightTheme={$lightTheme}>
+<div id="mainBody" class:visible={$visibleState} class:lightTheme={$lightTheme} >
     <Navbar />
-    <div id="page">
+    <div>
         {@render children?.()}
     </div>
+    <br><br><br><br><br><br>
     <footer>
         <b>Thank you for taking your time and visiting my website</b>
-        <a href="#page">Scroll to top</a>
+        <a href="#mainBody" aria-label="To top">Scroll to top</a>
     </footer>
 </div>

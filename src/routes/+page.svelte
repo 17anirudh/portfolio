@@ -27,6 +27,11 @@
             transition: all ease-in-out 0.5s;
             width: inherit;
             font-family: "Exo 2", sans-serif;
+            &.animation {
+                animation: fadeUp both;
+                animation-timeline: view();
+                animation-range: entry 20% cover 40%;
+            }
             h3{
                 font-family: "Cormorant Upright", serif;
                 transition: all ease-in 0.3s;
@@ -51,10 +56,19 @@
     dt.underline{
         text-decoration: underline;
     }
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(10px) scale(0.5);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
 </style>
 
 <div id="pageBody">
-    <!-- <h1>Vedala Anirudh</h1> -->
     <div><Signature /></div>
     <h2><span class="material-symbols-outlined">location_on</span>Visakhapatnam, India</h2>
     <div class="card">
@@ -66,8 +80,8 @@
             in various extracurricular activities like drawing, swimming, and roller-skating during my school years.
         </p>
     </div>
-    <br><br><br>
-    <div class="card">
+    <br><br><br><br><br><br>
+    <div class="card animation">
         <h3><span class="material-symbols-outlined">emoji_people</span>About:</h3>
         <p>
             The key to a fast and demanding future is to <b>build slow now</b>. It might feel counterintuitive, but a 
@@ -90,19 +104,19 @@
             actualText="repo link"/></a> when I came across backend and frontend in use.
         </p>
     </div>
-    <br><br><br>
-    <div class="card" id="skills">
+    <br><br><br><br><br><br id="skills">
+    <div class="card animation">
         <h3><span class="material-symbols-outlined">engineering</span>Skills:</h3>
         <Skills />
     </div>
-    <br><br><br>
-    <div id="projects" class="card">
+    <br><br><br><br><br><br id="projects">
+    <div class="card animation">
         <br><br>
         <h3><span class="material-symbols-outlined">folder_code</span>Projects</h3>
         <Projects />
     </div>
-    <br><br><br>
-    <div id="experience" class="card">
+    <br><br><br><br><br><br id="experience">
+    <div class="card animation">
         <h3><span class="material-symbols-outlined">work_history</span>Experience: </h3> <br> <br>
         <dl>
             <dt class="underline">
@@ -132,8 +146,8 @@
             </dd>
         </dl>
     </div>
-    <br><br><br>
-    <div id="contact" class="card">
+    <br><br><br><br><br><br id="contact">
+    <div class="card animation">
         <h3><span class="material-symbols-outlined">account_circle</span>Contact me: </h3> <br> <br>
         <div id="form">
             <Contact />
