@@ -1,6 +1,8 @@
 <script lang="ts">
     import ToolKit from "../components/toolKit.svelte";
     import Skills from "../components/skills.svelte";
+    import Projects from "../components/projects.svelte";
+    import DiscordForm from "../components/discordForm.svelte";
 </script>
 
 <style lang="scss">
@@ -41,6 +43,11 @@
                 font-size: larger;
                 padding: 20px 0 20px 0;
             }
+        }
+    }
+    @media only screen and (max-width: 767px) {
+        div#pageBody {
+            padding: 40px;
         }
     }
 </style>
@@ -84,5 +91,46 @@
     <div class="card" id="skills">
         <h3><span class="material-symbols-outlined">engineering</span>Skills:</h3>
         <Skills />
+    </div>
+    <div id="projects" class="card">
+        <br><br>
+        <h3><span class="material-symbols-outlined">folder_code</span>Projects</h3>
+        <Projects />
+    </div>
+    <div id="experience" class="card">
+        <h3><span class="material-symbols-outlined">work_history</span>Experience: </h3> <br> <br>
+        <dl>
+            <dt>
+                HackAP Hackathon
+            </dt>
+            <dd>
+                Qualified twice for the in-person demonstration phase along with my team after the prototype evaluation. <br>
+                Built an Android app to detect outsiders/trespassers entering residential zone. <br>
+                Created a Web app to search LinkedIn profiles with 10+ years of experience in a domain.
+            </dd>
+            <br>
+            <dt>
+                Smart India Hackathon
+            </dt>
+            <dd>
+                Participated for SIH Internal hackathon
+            </dd>
+            <br>
+            <dt>
+                Walmart Advanced Software Engineering Virtual Experience Program
+            </dt>
+            <dd>
+                Developed a novel version of a heap data structure in Java for Walmart's shipping department, showcasing strong
+                problem-solving and algorithmic skills. <br>
+                Designed a UML class diagram and ER diagram for a data processor, considering different operating modes and
+                database connections.
+            </dd>
+        </dl>
+    </div>
+    <div id="contact" class="card">
+        <h3><span class="material-symbols-outlined">account_circle</span>Contact me: </h3> <br> <br>
+        <div id="form">
+            <DiscordForm />
+        </div>
     </div>
 </div>

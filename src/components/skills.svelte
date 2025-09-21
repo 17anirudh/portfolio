@@ -3,7 +3,8 @@
         margin: 100px auto;
         width: 90%;
         display: flex;
-        overflow-x: auto;
+        overflow-x: hidden;
+        overflow-y: hidden;
         &::-webkit-scrollbar{
             display: none;
         }
@@ -12,7 +13,7 @@
             align-items: center;
             justify-content: center;
             // gap: 1em;
-            animation: spin 20s infinite linear;
+            animation: spin 30s infinite linear;
             animation-delay: 150ms;
             animation-play-state: running;
         }
