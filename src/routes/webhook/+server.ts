@@ -20,7 +20,7 @@ export const POST: RequestHandler = async ({ request }) => {
       payload.username = username;
     }
     if (name) {
-      payload.name = name;
+      payload.content = `${name.toLocaleUpperCase()}: ${message}`;
     }
 
 		const response = await fetch(DISCORD_WEBHOOK_URL, {

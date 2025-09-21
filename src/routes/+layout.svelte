@@ -22,9 +22,18 @@
     <link rel="icon" href="{owl}" type="image/svg">
     <link rel="apple-touch-icon" href="{owl}">
 	<link rel="icon" href={owl} />
+
+    <!--Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"  />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro">
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!--Logo-->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Google+Sans+Code:wght@300&display=swap" rel="stylesheet">
+    <!--Navbar-->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300&display=swap" rel="stylesheet">
+    <!--p-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,441;1,441&display=swap" rel="stylesheet">
+    <!--Vizag, h3-->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;500;600&display=swap" rel="stylesheet">
+
     <title>Anirudh</title>
 </svelte:head>
 
@@ -39,8 +48,6 @@
 </script>
 
 <style lang="scss">
-    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
     $dark-bg: #0F1035;
     $dark-div: #365486;
     $light-div: #7FC7D9;
@@ -89,13 +96,27 @@
             @include full-screen;
             @include body-color("d");
             @include center-stuff;
-            font-family: 'Crimson Pro', sans-serif;
             visibility: hidden;
             &.visible{
                 visibility: visible;
             }
             &.lightTheme{
                 @include body-color("l");
+            }
+        }
+    }
+    footer {
+        bottom: 0;
+        border-top: 1px solid slateblue;
+        display: flex;
+        flex-direction: column;
+        @include center-stuff;
+        height: 200px;
+        a {
+            color: inherit;
+            text-decoration: none;
+            &:visited {
+                color: inherit;
             }
         }
     }
@@ -110,4 +131,8 @@
     <div id="page">
         {@render children?.()}
     </div>
+    <footer>
+        <b>Thank you for taking your time and visiting my website</b>
+        <a href="#page">Scroll to top</a>
+    </footer>
 </div>

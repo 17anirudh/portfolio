@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    font-family: inherit;
     img {
         height: 270px;
     }
@@ -10,7 +11,6 @@
         text-decoration: none;
         background-color: inherit;
         filter: contrast(-20%);
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
         figcaption {
             transition: all ease-in-out 0.3s;
             &:hover {

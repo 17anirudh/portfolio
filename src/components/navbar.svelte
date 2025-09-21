@@ -20,6 +20,7 @@
 </script>
 
 <style lang="scss">
+    @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300;1,300&display=swap');
     $dark-bg: #0F1035;
     $dark-div: #365486;
     $light-div: #7FC7D9;
@@ -51,6 +52,8 @@
         @include center-stuff;
         gap: 20px;
         width: 100vw;
+        font-family: 'Google Sans Code', serif;
+        font-weight: 300;
         div#inner {
             display: flex;
             @include center-stuff;
@@ -114,10 +117,11 @@
             margin-left: 25px;
         }
     }
-    @media only screen and (max-width: 534px){
+    @media only screen and (max-width: 630px){
         nav {
             flex-direction: column;
-            gap: 5px;
+            gap: 1px;
+            @include center-stuff;
             div#inner {
                 flex-direction: column;
                 gap: 5px;

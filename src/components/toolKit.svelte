@@ -8,7 +8,9 @@
         position: relative;
         display: inline-block;
         border-bottom: 1px dotted black; 
-        text-decoration: dotted;
+        text-decoration: underline;
+        color: inherit;
+        cursor: pointer;
         .tooltiptext {
             visibility: hidden;
             width: 120px;
