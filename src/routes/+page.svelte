@@ -71,6 +71,9 @@
 <div id="pageBody">
     <div><Signature /></div>
     <h2><span class="material-symbols-outlined">location_on</span>Visakhapatnam, India</h2>
+    <a href="/" download="" aria-label="Resume">
+        <ToolKit actualText="Click for Resume" hoverText="Thank you for your interest, resume will be uploaded soon"/>
+    </a>
     <div class="card">
        <p> 
             I love working on enhancing my skills and knowledge in computer science, with a primary focus on Data 
